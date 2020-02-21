@@ -9,6 +9,7 @@ const timestamp = document.getElementById('timestamp');
 // Play & Pause video
 
 function toggleVideoStatus() {
+    console.log('toggleVideoStatus');
     if (video.paused) {
         video.play();
     } else {
@@ -19,6 +20,7 @@ function toggleVideoStatus() {
 // update play/pause icon
 
 function updatePlayIcon() {
+    console.log('updateplayicon');
     if (video.paused) {
         play.innerHTML = '<i class="fa fa-play fa-2x"></i>'
     } else {
@@ -38,33 +40,18 @@ function updatePlayIcon() {
 //     }
 // }
 
-// update progress & timestamp
 
-function updateProgress() {
-    return true;
-}
 
-// set video time to press 
 
-function setVideoProgress() {
-    return true;
-}
+
 
 // Stop video
 
 function stopVideo() {
+    console.log('stopvideo')
     video.currentTime = 0;
     video.pause();
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -75,10 +62,10 @@ function stopVideo() {
 video.addEventListener('click', toggleVideoStatus);
 video.addEventListener('pause', updatePlayIcon);
 video.addEventListener('play', updatePlayIcon);
-video.addEventListener('timeUpdate', updateProgress);
+// video.addEventListener('timeupdate', updateProgress);
 
 play.addEventListener('click', toggleVideoStatus);
 
 stop.addEventListener('click', stopVideo)
 
-progress.addEventListener('change', setVideoProgress)
+// progress.addEventListener('change', setVideoProgress)
