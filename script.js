@@ -57,7 +57,6 @@ function stopVideo() {
 function updateProgress() {
     console.log('updateprogress');
     progress.value = (video.currentTime / video.duration) * 100;
-
     // Get minutes
     let mins = Math.floor(video.currentTime / 60);
     if (mins < 10) {
