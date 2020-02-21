@@ -18,8 +18,56 @@ h1 {
 
 .screen {
     cursor: pointer;
-    width: 50%;
+    width: 60%;
     background-color: #000 !important;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.controls {
+    background: #333;
+    color: #fff;
+    width: 60%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.control .btn {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.control .fa-play {
+    color: #28a745;
+}
+
+.control .fa-stop {
+    color: #dc3545;
+}
+
+.control .fa-pause {
+    color: #fff;
+}
+
+.controls .timestamp {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+@media(max-width:800px) {
+
+    .screen,
+    .controls {
+        width: 90%;
+    }
 }
