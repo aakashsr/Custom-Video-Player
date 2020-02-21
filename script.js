@@ -19,8 +19,24 @@ function toggleVideoStatus() {
 // update play/pause icon
 
 function updatePlayIcon() {
-    return true;
+    if (video.paused) {
+        play.innerHTML = '<i class="fa fa-play fa-2x"></i>'
+    } else {
+        play.innerHTML = '<i class="fa fa-pause fa-2x"></i>'
+    }
 }
+
+// Another Approach
+// function updatePlayIcon() {
+//     const playIcon = play.querySelector('#play .fa')
+//     if (playIcon.classList.contains('fa-play')) {
+//         playIcon.classList.remove('fa-play')
+//         playIcon.classList.add('fa-pause');
+//     } else {
+//         playIcon.classList.remove('fa-pause')
+//         playIcon.classList.add('fa-play')
+//     }
+// }
 
 // update progress & timestamp
 
