@@ -36,7 +36,7 @@ h1 {
     padding: 10px;
 }
 
-.control .btn {
+.controls .btn {
     border: 0;
     background: transparent;
     cursor: pointer;
@@ -46,15 +46,15 @@ h1 {
     outline: 0;
 }
 
-.control .fa-play {
+.controls .fa-play {
     color: #28a745;
 }
 
-.control .fa-stop {
+.controls .fa-stop {
     color: #dc3545;
 }
 
-.control .fa-pause {
+.controls .fa-pause {
     color: #fff;
 }
 
