@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    font-family: 'Lato', sans-serif;
     display: flex;
     background-color: #666;
     align-items: center;
@@ -11,51 +14,338 @@ body {
     margin: 0;
 }
 
+
+.stage-progress-container {
+    background-color: #29447c;
+}
+
+.stage-progress-item {
+    text-align: center;
+    position: relative;
+}
+
+.stage-progress-list {
+    line-height: 2;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.stage-progress-item {
+    flex: 1;
+}
+
+/* .stage-progress-item-divider {
+    flex: 3;
+} */
+
+.stage-progress-item-divider::before {
+    content: '';
+    background-color: #fff;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
+    opacity: .2;
+}
+
+.stage-progress-link img {
+    opacity: .5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .player {
-    max-width: 750px;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+}
+
+.player:-webkit-full-screen {
+    max-width: 3000px;
 }
 
 .screen {
     cursor: pointer;
-    width: 70%;
+    width: 100%;
     background-color: #000 !important;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .controls {
-    background: #333;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    /* transform: translateY(120%) translateY(-5px); */
+    /* background: #333; */
+    background: #384047;
     color: #fff;
-    width: 70%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
+    flex-wrap: wrap;
+    transition: .3s;
 }
+
+.controls>* {
+    flex: 1;
+}
+
+.progress {
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: #2f363c;
+    height: 14px;
+    display: flex;
+    /* flex-basis: 100%; */
+    flex: 15;
+    border-radius: 14px;
+    transition: height .3s;
+}
+
+.progress__filled {
+    flex-basis: 50%;
+    flex: 0;
+    background: #5fcf80;
+    border-radius: 14px;
+    height: 14px;
+}
+
+/* .player:hover .controls {
+    transform: translateY(0);
+} */
 
 .controls .btn {
     border: 0;
     background: transparent;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* .speed,
+.volume {
+    position: relative;
+} */
+
+
+.speed-controls,
+.volume-controls {
+    position: absolute;
+    background: #24292e;
+    border-radius: 4px;
+    bottom: 0;
+    width: 40px;
+    padding: 10px;
+    left: 5%;
+    bottom: 100%;
+
+    height: auto;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.speed-controls ol,
+.volume-controls ol {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none;
+    font-size: 14px;
+}
+
+.speed-level,
+.volume-level {
+    background: #384047;
+    font-size: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: relative
+}
+
+.speed-level:first-child,
+.volume-level:first-child {
+    border-radius: 4px 4px 0 0;
+}
+
+.speed-tooltip {
+    position: absolute;
+    background: #24292e;
+    text-align: center;
+    padding: 10px 20px;
+    width: auto;
+    z-index: 1000;
+    border-radius: 4px;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease,
+        opacity 0.3s ease;
+    -ms-transform: translate(-15px, -50%);
+    -moz-transform: translate(-15px, -50%);
+    -webkit-transform: translate(-15px, -50%);
+    transform: translate(-15px, -50%);
+    color: #fff;
+    top: 50%;
+    right: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 10px 15px;
+}
+
+
+.speed:hover .speed-controls {
+    visibility: visible;
+    opacity: 1;
+}
+
+.volume:hover .volume-controls {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.speed-level:hover .speed-tooltip {
+    visibility: visible;
+    opacity: 1
+}
+
+
+.speed ol:not(:hover) .currentSpeed {
+    background: #5fcf80;
+}
+
+.speed ol:not(:hover) .currentSpeed~.speed-level {
+    background: #5fcf80;
+}
+
+.speed-level:hover~.speed-level {
+    background: #5fcf80;
+}
+
+.speed-level:hover {
+    background: #5fcf80;
+}
+
+
+/* Pseudo Elements */
+
+.speed-controls:after,
+.volume-controls:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: #24292e;
+    top: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(45deg);
+    left: 50%;
+    transform-origin: center center;
+}
+
+
+
+
+.volume ol:not(:hover) .currentVolume {
+    background: #5fcf80;
+}
+
+.volume ol:not(:hover) .currentVolume~.volume-level {
+    background: #5fcf80;
+}
+
+.volume-level:hover~.volume-level {
+    background: #5fcf80;
+}
+
+.volume-level:hover {
+    background: #5fcf80;
+}
+
 
 .btn:focus {
     outline: 0;
 }
 
+.timer,
+.duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer span {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 5px 0 10px;
+}
+
+.duration span {
+    font-size: 13px;
+    font-weight: 300;
+    padding: 0 40px 0 10px;
+}
+
+.btn-play {
+    padding: 0 8px;
+}
+
+.btn-play:hover .play {
+    text-shadow: 0 0 1em #fff;
+}
+
 .btn-play,
-.btn-stop {
-    width: 5%;
+.timer,
+.duration,
+.rewind,
+.speed,
+.fullscreen,
+.volume {
+    position: relative;
+    fill: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.input-progress {
-    width: 80%;
-}
 
-.timer {
-    width: 10%;
+.btn-play,
+.timer,
+.duration,
+.rewind,
+.speed,
+.volume,
+.fullscreen {
+    height: 100%;
 }
 
 
@@ -74,7 +364,7 @@ body {
 
 .controls .timestamp {
     color: #fff;
-    font-weight: bold;
+    /* font-weight: bold; */
     margin-left: 10px;
 }
 
@@ -82,6 +372,7 @@ body {
     font-size: 32px;
     color: #fff;
 }
+
 
 
 

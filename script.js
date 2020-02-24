@@ -1,9 +1,60 @@
 const video = document.getElementById("video");
 const play = document.getElementById("play");
-const stop = document.getElementById("stop");
-const progress = document.getElementById("progress");
 const timestamp = document.getElementById("timestamp");
+const totalTimestamp = document.getElementById("total-timestamp");
+const progress = document.querySelector(".progress");
+const progressBar = document.querySelector(".progress__filled");
+const fullscreen = document.getElementById("fullscreen");
 
+const speedLevels = document.querySelectorAll(".speed-level");
+
+const volumeLevels = document.querySelectorAll(".volume-level");
+
+const speedControls = document.querySelector(".speed-controls");
+
+const volumeControls = document.querySelector(".volume-controls");
+
+speedControls.addEventListener("click", function(e) {
+  removeCurrentSpeed();
+  e.target.classList.add("currentSpeed");
+  const speedAttribute = event.target.getAttribute("dataSpeed");
+  video.playbackRate = speedAttribute;
+});
+
+volumeControls.addEventListener("click", function(e) {
+  removeCurrentVolume();
+  e.target.classList.add("currentVolume");
+  const volumeAttribute = event.target.getAttribute("volumeSpeed");
+  console.log(volumeAttribute);
+  video.volume = volumeAttribute;
+});
+
+function removeCurrentSpeed() {
+  for (let i = 0; i < speedLevels.length; i++) {
+    speedLevels[i].classList.remove("currentSpeed");
+  }
+}
+
+function removeCurrentVolume() {
+  for (let i = 0; i < volumeLevels.length; i++) {
+    volumeLevels[i].classList.remove("currentVolume");
+  }
+}
+
+// for (let i = 0; i < speedLevels.length; i++) {
+//   speedLevels[i].addEventListener("click", function(e) {
+//     const attribute = event.target.getAttribute("dataSpeed");
+//     console.log(attribute);
+//     video.playbackRate = attribute;
+//   });
+// }
+
+// video.onloadedmetadata = function() {
+//   console.log("metadata loaded!");
+//   console.log(video.duration);
+// };
+
+// onloadedmetadata();
 // Play & Pause video
 
 function toggleVideoStatus() {
@@ -12,6 +63,22 @@ function toggleVideoStatus() {
   } else {
     video.pause();
   }
+}
+
+function totalDuration() {
+  let mins = Math.floor(video.duration / 60);
+  if (mins < 10) {
+    mins = "0" + String(mins);
+  }
+
+  // Get seconds
+
+  let secs = Math.floor(video.duration % 60);
+  if (secs < 10) {
+    secs = "0" + String(secs);
+  }
+
+  totalTimestamp.innerText = `${mins}:${secs}`;
 }
 
 // update play/pause icon
@@ -24,18 +91,6 @@ function updatePlayIcon() {
   }
 }
 
-// Another Approach
-// function updatePlayIcon() {
-//     const playIcon = play.querySelector('#play .fa')
-//     if (playIcon.classList.contains('fa-play')) {
-//         playIcon.classList.remove('fa-play')
-//         playIcon.classList.add('fa-pause');
-//     } else {
-//         playIcon.classList.remove('fa-pause')
-//         playIcon.classList.add('fa-play')
-//     }
-// }
-
 // Stop video
 
 function stopVideo() {
@@ -46,8 +101,9 @@ function stopVideo() {
 
 // update progress & timestamp
 function updateProgress() {
-  console.log("updateprogress");
-  progress.value = (video.currentTime / video.duration) * 100;
+  //   console.log("updateprogress");
+  value = (video.currentTime / video.duration) * 100;
+  progressBar.style.flexBasis = `${value}%`;
 
   // Get minutes
   let mins = Math.floor(video.currentTime / 60);
@@ -71,6 +127,8 @@ function setVideoProgress() {
   video.currentTime = (+progress.value * video.duration) / 100;
 }
 
+// console.log(video.duration);
+
 // Event Listeners
 
 video.addEventListener("click", toggleVideoStatus);
@@ -78,5 +136,13 @@ video.addEventListener("pause", updatePlayIcon);
 video.addEventListener("play", updatePlayIcon);
 video.addEventListener("timeupdate", updateProgress);
 play.addEventListener("click", toggleVideoStatus);
-stop.addEventListener("click", stopVideo);
+// stop.addEventListener("click", stopVideo);
 progress.addEventListener("change", setVideoProgress);
+
+window.addEventListener("load", function() {
+  totalDuration();
+});
+
+fullscreen.addEventListener("click", function() {
+  fullscreen.webkitRequestFullscreen();
+});
