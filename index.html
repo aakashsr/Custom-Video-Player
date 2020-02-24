@@ -16,7 +16,8 @@
     <div class="stage-progress-container">
       <ul class="stage-progress-list">
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play' />
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -24,7 +25,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -32,7 +34,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -40,7 +43,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -49,7 +53,8 @@
 
         <li class="stage-progress-item stage-progress-step">
           <a href='#' class='stage-progress-link'>
-            <img src='img/more (2).png'>
+            <img src='img/more (2).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -57,7 +62,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -65,7 +71,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -73,16 +80,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href='#' class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
-          </a>
-        </li>
-
-        <li class="stage-progress-item stage-progress-item-divider">
-        </li>
-
-        <li class="stage-progress-item stage-progress-step">
-          <a href="#" class='stage-progress-link'>
-            <img src='img/more (2).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -90,7 +89,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href="#" class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/more (2).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -98,7 +98,8 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href="#" class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
@@ -106,105 +107,120 @@
         </li>
 
         <li class="stage-progress-item stage-progress-step"><a href="#" class='stage-progress-link'>
-            <img src='img/play-button (5).png'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
+          </a>
+        </li>
+
+        <li class="stage-progress-item stage-progress-item-divider">
+        </li>
+
+        <li class="stage-progress-item stage-progress-step"><a href="#" class='stage-progress-link'>
+            <img src='img/play-button (5).png' class='play'>
+            <img src='img/empty (1).png' class='circle' />
           </a>
         </li>
 
       </ul>
     </div>
-    <video src="videos/Rise Up - Motivational Speech For Those With Ambition.mp4" poster="" id="video"
-      class="screen"></video>
+    <div class="video-container">
+      <video src="videos/Rise Up - Motivational Speech For Those With Ambition.mp4" poster="" id="video"
+        class="screen"></video>
 
-    <div class="controls">
+      <div class="controls">
 
-      <div class="btn-play">
-        <button class="btn" id="play">
-          <ion-icon name="play" class="play"></ion-icon>
-        </button>
-      </div>
-
-      <div class="timer">
-        <span class="timestamp" id="timestamp">00:00</span>
-      </div>
-
-      <div class="progress">
-        <div class="progress__filled"></div>
-      </div>
-
-      <div class="duration">
-        <span class="total-timestamp" id='total-timestamp'></span>
-      </div>
-
-      <div class="rewind">
-        <img src='img/rewind (1).png' class='rewind-icon' width='22px'>
-      </div>
-
-      <div class="speed" id='speed'>
-        <img src='img/dashboard (6).png' class='speed-icon' width='24px'>
-        <div class="speed-controls">
-          <ol>
-            <li class="speed-level" dataSpeed='2'>
-              <span class="speed-tooltip">2x</span>
-            </li>
-            <li class="speed-level" dataSpeed='1.75'>
-              <span class="speed-tooltip">1.75x</span>
-            </li>
-            <li class="speed-level" dataSpeed='1.5'>
-              <span class="speed-tooltip">1.5x</span>
-            </li>
-            <li class="speed-level" dataSpeed='1.25'>
-              <span class="speed-tooltip">1.25x</span>
-            </li>
-            <li class="speed-level" dataSpeed='1.1'>
-              <span class="speed-tooltip">1.1x</span>
-            </li>
-            <li class="speed-level" dataSpeed='1'>
-              <span class="speed-tooltip">1x</span>
-            </li>
-            <li class="speed-level" dataSpeed='.75'>
-              <span class="speed-tooltip">.75x</span>
-            </li>
-            <li class="speed-level" dataSpeed='.5'>
-              <span class="speed-tooltip">.5x</span>
-            </li>
-          </ol>
+        <div class="btn-play">
+          <button class="btn" id="play">
+            <ion-icon name="play" class="play"></ion-icon>
+          </button>
         </div>
-      </div>
 
-      <div class="volume" id='volume'>
-        <img src='img/speaker.png' class='volume-icon' width='24px'>
-        <div class="volume-controls">
-          <ol>
-            <li class="volume-level" volumeSpeed='1'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.85'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.7'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.55'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.4'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.25'>
-
-            </li>
-            <li class=" volume-level" volumeSpeed='.1'>
-
-            </li>
-            <li class="volume-level" volumeSpeed='.05'>
-
-            </li>
-          </ol>
+        <div class="timer">
+          <span class="timestamp" id="timestamp">00:00</span>
         </div>
-      </div>
 
-      <div class="fullscreen" id='fullscreen'>
-        <img src='img/fullscreen (5).png' class='fullscreen-icon' width='20px'>
+        <div class="progress">
+          <div class="progress__filled"></div>
+        </div>
+
+        <div class="duration">
+          <span class="total-timestamp" id='total-timestamp'></span>
+        </div>
+
+        <div class="rewind">
+
+
+          <img src='img/rewind (1).png' data-skip='-15' class='rewind-icon' width='22px'>
+        </div>
+
+        <div class="speed" id='speed'>
+          <img src='img/dashboard (6).png' class='speed-icon' width='24px'>
+          <div class="speed-controls">
+            <ol>
+              <li class="speed-level" dataSpeed='2'>
+                <span class="speed-tooltip">2x</span>
+              </li>
+              <li class="speed-level" dataSpeed='1.75'>
+                <span class="speed-tooltip">1.75x</span>
+              </li>
+              <li class="speed-level" dataSpeed='1.5'>
+                <span class="speed-tooltip">1.5x</span>
+              </li>
+              <li class="speed-level" dataSpeed='1.25'>
+                <span class="speed-tooltip">1.25x</span>
+              </li>
+              <li class="speed-level" dataSpeed='1.1'>
+                <span class="speed-tooltip">1.1x</span>
+              </li>
+              <li class="speed-level" dataSpeed='1'>
+                <span class="speed-tooltip">1x</span>
+              </li>
+              <li class="speed-level" dataSpeed='.75'>
+                <span class="speed-tooltip">.75x</span>
+              </li>
+              <li class="speed-level" dataSpeed='.5'>
+                <span class="speed-tooltip">.5x</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="volume" id='volume'>
+          <img src='img/speaker.png' class='volume-icon' width='24px'>
+          <div class="volume-controls">
+            <ol>
+              <li class="volume-level" volumeSpeed='1'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.85'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.7'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.55'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.4'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.25'>
+
+              </li>
+              <li class=" volume-level" volumeSpeed='.1'>
+
+              </li>
+              <li class="volume-level" volumeSpeed='.05'>
+
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="fullscreen" id='fullscreen'>
+          <button class="fullscreen-btn"><img src='img/fullscreen (5).png' class='fullscreen-icon'
+              width='20px'></button>
+        </div>
       </div>
     </div>
   </div>

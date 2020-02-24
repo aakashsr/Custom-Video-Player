@@ -4,57 +4,27 @@ const timestamp = document.getElementById("timestamp");
 const totalTimestamp = document.getElementById("total-timestamp");
 const progress = document.querySelector(".progress");
 const progressBar = document.querySelector(".progress__filled");
-const fullscreen = document.getElementById("fullscreen");
-
 const speedLevels = document.querySelectorAll(".speed-level");
-
 const volumeLevels = document.querySelectorAll(".volume-level");
-
 const speedControls = document.querySelector(".speed-controls");
-
 const volumeControls = document.querySelector(".volume-controls");
+const fullScreenBtn = document.querySelector(".fullscreen-btn");
+const videoContainer = document.querySelector(".video-container");
 
-speedControls.addEventListener("click", function(e) {
-  removeCurrentSpeed();
-  e.target.classList.add("currentSpeed");
-  const speedAttribute = event.target.getAttribute("dataSpeed");
-  video.playbackRate = speedAttribute;
-});
-
-volumeControls.addEventListener("click", function(e) {
-  removeCurrentVolume();
-  e.target.classList.add("currentVolume");
-  const volumeAttribute = event.target.getAttribute("volumeSpeed");
-  console.log(volumeAttribute);
-  video.volume = volumeAttribute;
-});
-
+// Remove currentSpeed class from all list-items
 function removeCurrentSpeed() {
   for (let i = 0; i < speedLevels.length; i++) {
     speedLevels[i].classList.remove("currentSpeed");
   }
 }
 
+// Remove currentVolume class from all list-items
 function removeCurrentVolume() {
   for (let i = 0; i < volumeLevels.length; i++) {
     volumeLevels[i].classList.remove("currentVolume");
   }
 }
 
-// for (let i = 0; i < speedLevels.length; i++) {
-//   speedLevels[i].addEventListener("click", function(e) {
-//     const attribute = event.target.getAttribute("dataSpeed");
-//     console.log(attribute);
-//     video.playbackRate = attribute;
-//   });
-// }
-
-// video.onloadedmetadata = function() {
-//   console.log("metadata loaded!");
-//   console.log(video.duration);
-// };
-
-// onloadedmetadata();
 // Play & Pause video
 
 function toggleVideoStatus() {
@@ -65,6 +35,7 @@ function toggleVideoStatus() {
   }
 }
 
+// Getting total duration of video
 function totalDuration() {
   let mins = Math.floor(video.duration / 60);
   if (mins < 10) {
@@ -123,8 +94,9 @@ function updateProgress() {
 
 // set video time to progress
 
-function setVideoProgress() {
-  video.currentTime = (+progress.value * video.duration) / 100;
+function setVideoProgress(e) {
+  const progressUpdate = (e.offsetX / progress.offsetWidth) * video.duration;
+  video.currentTime = progressUpdate;
 }
 
 // console.log(video.duration);
@@ -137,12 +109,29 @@ video.addEventListener("play", updatePlayIcon);
 video.addEventListener("timeupdate", updateProgress);
 play.addEventListener("click", toggleVideoStatus);
 // stop.addEventListener("click", stopVideo);
-progress.addEventListener("change", setVideoProgress);
+progress.addEventListener("click", setVideoProgress);
 
 window.addEventListener("load", function() {
   totalDuration();
 });
 
-fullscreen.addEventListener("click", function() {
-  fullscreen.webkitRequestFullscreen();
+fullScreenBtn.addEventListener("click", function() {
+  videoContainer.requestFullscreen();
 });
+
+speedControls.addEventListener("click", function(e) {
+  removeCurrentSpeed();
+  e.target.classList.add("currentSpeed");
+  const speedAttribute = event.target.getAttribute("dataSpeed");
+  video.playbackRate = speedAttribute;
+});
+
+volumeControls.addEventListener("click", function(e) {
+  removeCurrentVolume();
+  e.target.classList.add("currentVolume");
+  const volumeAttribute = event.target.getAttribute("volumeSpeed");
+  console.log(volumeAttribute);
+  video.volume = volumeAttribute;
+});
+
+progress.addEventListener("click", setVideoProgress(e));

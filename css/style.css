@@ -14,6 +14,15 @@ body {
     margin: 0;
 }
 
+button {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.circle {
+    display: none;
+}
 
 .stage-progress-container {
     background-color: #29447c;
@@ -37,10 +46,6 @@ body {
     flex: 1;
 }
 
-/* .stage-progress-item-divider {
-    flex: 3;
-} */
-
 .stage-progress-item-divider::before {
     content: '';
     background-color: #fff;
@@ -57,34 +62,10 @@ body {
     opacity: .5;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .player {
     max-width: 1200px;
     overflow: hidden;
     position: relative;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
 }
 
 .player:-webkit-full-screen {
@@ -95,8 +76,6 @@ body {
     cursor: pointer;
     width: 100%;
     background-color: #000 !important;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 }
 
 .controls {
@@ -104,8 +83,6 @@ body {
     bottom: 0;
     width: 100%;
     height: 60px;
-    /* transform: translateY(120%) translateY(-5px); */
-    /* background: #333; */
     background: #384047;
     color: #fff;
     display: flex;
@@ -119,12 +96,11 @@ body {
 }
 
 .progress {
-    /* background: rgba(0, 0, 0, 0.5); */
     background: #2f363c;
     height: 14px;
     display: flex;
-    /* flex-basis: 100%; */
     flex: 15;
+    cursor: pointer;
     border-radius: 14px;
     transition: height .3s;
 }
@@ -137,10 +113,6 @@ body {
     height: 14px;
 }
 
-/* .player:hover .controls {
-    transform: translateY(0);
-} */
-
 .controls .btn {
     border: 0;
     background: transparent;
@@ -150,12 +122,6 @@ body {
     justify-content: center;
 }
 
-/* .speed,
-.volume {
-    position: relative;
-} */
-
-
 .speed-controls,
 .volume-controls {
     position: absolute;
@@ -164,7 +130,8 @@ body {
     bottom: 0;
     width: 40px;
     padding: 10px;
-    left: 5%;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 100%;
 
     height: auto;
@@ -221,7 +188,6 @@ body {
     padding: 10px 15px;
 }
 
-
 .speed:hover .speed-controls {
     visibility: visible;
     opacity: 1;
@@ -232,13 +198,10 @@ body {
     opacity: 1;
 }
 
-
-
 .speed-level:hover .speed-tooltip {
     visibility: visible;
     opacity: 1
 }
-
 
 .speed ol:not(:hover) .currentSpeed {
     background: #5fcf80;
@@ -272,9 +235,6 @@ body {
     transform-origin: center center;
 }
 
-
-
-
 .volume ol:not(:hover) .currentVolume {
     background: #5fcf80;
 }
@@ -290,7 +250,6 @@ body {
 .volume-level:hover {
     background: #5fcf80;
 }
-
 
 .btn:focus {
     outline: 0;
@@ -337,7 +296,6 @@ body {
     justify-content: center;
 }
 
-
 .btn-play,
 .timer,
 .duration,
@@ -346,20 +304,6 @@ body {
 .volume,
 .fullscreen {
     height: 100%;
-}
-
-
-.controls .fa-play {
-    /* color: #28a745; */
-    color: #fff;
-}
-
-.controls .fa-stop {
-    color: #dc3545;
-}
-
-.controls .fa-pause {
-    color: #fff;
 }
 
 .controls .timestamp {
@@ -373,47 +317,45 @@ body {
     color: #fff;
 }
 
-
-
-
 @media(max-width:800px) {
 
-    .screen,
-    .controls {
-        width: 90%;
+    .player {
+        width: 95%;
     }
 }
 
-input[type=range] {
-    height: 34px;
-    -webkit-appearance: none;
-    margin: 10px 0;
-    width: 100%;
-}
 
-input[type=range]:focus {
-    outline: none;
-}
+@media(max-width:600px) {
+    .play {
+        display: none;
+    }
 
-input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 12px;
-    cursor: pointer;
-    /* animate: 0.2s; */
-    box-shadow: 1px 1px 1px #002200;
-    background: #205928;
-    border-radius: 1px;
-    border: 1px solid #18D501;
-}
+    .circle {
+        display: inline-block;
+        width: 12px;
+    }
 
-input[type=range]::-webkit-slider-thumb {
-    box-shadow: 3px 3px 3px #00AA00;
-    border: 2px solid #83E584;
-    height: 23px;
-    width: 23px;
-    border-radius: 23px;
-    background: #439643;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -7px;
+    .stage-progress-container {
+        height: 40px;
+    }
+
+    .stage-progress-item-divider {
+        display: none;
+    }
+
+    .stage-progress-list {
+        line-height: 1;
+    }
+
+    .fullscreen,
+    .speed,
+    .rewind,
+    .btn-play,
+    .volume {
+        display: none;
+    }
+
+    .controls {
+        height: 40px;
+    }
 }
