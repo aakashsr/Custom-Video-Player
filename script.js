@@ -10,6 +10,14 @@ const speedControls = document.querySelector(".speed-controls");
 const volumeControls = document.querySelector(".volume-controls");
 const fullScreenBtn = document.querySelector(".fullscreen-btn");
 const videoContainer = document.querySelector(".video-container");
+const rewind = document.querySelector(".rewind-button");
+
+console.log(rewind);
+
+rewind.addEventListener("click", function(e) {
+  const skipAttribute = e.target.getAttribute("data-skip");
+  video.currentTime -= skipAttribute;
+});
 
 // Remove currentSpeed class from all list-items
 function removeCurrentSpeed() {
