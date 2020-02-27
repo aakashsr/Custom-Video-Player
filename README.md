@@ -3,7 +3,7 @@
 ## You can check my project [here](http://aakashdev.me/Custom-Video-Player/)
 
 #### Custom video player using the HTML5 video element and it's JavaScript API
-#### I have implemented the UI of [Teamtreehouse](https://teamtreehouse.com/library/javascript-everywhere-2)) as I really their player.
+#### I have implemented the UI of [Teamtreehouse](https://teamtreehouse.com/library/javascript-everywhere-2) as I really their player.
  
 
 <div align='center'>
@@ -19,5 +19,5 @@
 * Volume and speed controls by displaying their value.
 * Fullscreen toggle button.
 
-###### Feel free to fork :)
+##### Feel free to fork :)
 
